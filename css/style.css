@@ -1,0 +1,270 @@
+/* ============================================================
+   THE ERAS ANTHOLOGY — Design tokens
+   Palette: near-black stage (#0b0b0d) + six era accents.
+   Display: Playfair Display (serif, editorial, "liner notes")
+   Body:    Inter (clean, modern)
+   Signature: collapsible "vinyl sleeve" timeline whose left
+   edge and glow always carry that era's own color.
+   ============================================================ */
+:root{
+  --bg:#0b0b0d;
+  --bg-2:#141317;
+  --bg-3:#1b1a1f;
+  --cream:#f3ede0;
+  --cream-dim:#b9b3a6;
+  --gold:#cda45e;
+
+  --fearless:#cda45e;
+  --y1989:#6fa8c9;
+  --folklore:#8b968a;
+  --reputation:#9aa0ab;
+  --lover:#e8a0b4;
+  --midnights:#8b7fd1;
+  --crimson:#b3363b;
+
+  --font-display:'Playfair Display', Georgia, serif;
+  --font-body:'Inter', sans-serif;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--cream);
+  font-family:var(--font-body);
+  font-weight:300;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:var(--font-display); color:var(--cream); font-weight:700; margin:0;}
+p{color:var(--cream-dim);}
+a{cursor:pointer;}
+::selection{background:var(--gold); color:#1a1208;}
+
+.section-title{font-size:2.4rem; letter-spacing:.5px; margin-bottom:.4rem;}
+.section-sub{max-width:560px; margin:0 auto 3rem; font-size:1rem;}
+.eyebrow{
+  font-family:var(--font-body); text-transform:uppercase; letter-spacing:3px;
+  font-size:.72rem; color:var(--gold); font-weight:600; margin-bottom:.75rem; display:block;
+}
+
+/* ---------- reveal-on-scroll ---------- */
+.reveal{opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s ease;}
+.reveal.active{opacity:1; transform:translateY(0);}
+.reveal-delay-1.active{transition-delay:.12s;}
+.reveal-delay-2.active{transition-delay:.24s;}
+.reveal-delay-3.active{transition-delay:.36s;}
+
+/* ---------- NAVBAR ---------- */
+nav{
+  background:rgba(11,11,13,.75)!important;
+  backdrop-filter:blur(10px);
+  box-shadow:none;
+  border-bottom:1px solid rgba(243,237,224,.08);
+  transition:background .3s ease;
+}
+nav .brand-logo{
+  font-family:var(--font-display); font-weight:700; font-size:1.5rem; color:var(--cream)!important;
+  left:1rem;
+}
+nav ul a{
+  color:var(--cream-dim)!important; font-size:.82rem; letter-spacing:1.5px; text-transform:uppercase;
+  font-weight:500; transition:color .25s ease;
+}
+nav ul a:hover{color:var(--gold)!important;}
+nav ul a.tickets-nav-btn{
+  background:var(--gold)!important; color:#1a1208!important; border-radius:30px; padding:0 22px;
+  height:38px; line-height:38px; margin-top:11px; font-weight:700;
+}
+.sidenav-trigger i{color:var(--cream);}
+.sidenav{background:var(--bg-2);}
+.sidenav li a{color:var(--cream-dim); text-transform:uppercase; font-size:.85rem; letter-spacing:1px;}
+.sidenav li a:hover{background:rgba(205,164,94,.12); color:var(--gold);}
+
+/* ---------- HERO ---------- */
+.hero-section{
+  position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center;
+  overflow:hidden; text-align:center; padding:0 1rem;
+}
+.hero-bg{
+  position:absolute; inset:0; z-index:0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(205,164,94,.35), transparent 40%),
+    radial-gradient(circle at 85% 15%, rgba(111,168,201,.30), transparent 42%),
+    radial-gradient(circle at 20% 85%, rgba(139,150,138,.28), transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(232,160,180,.28), transparent 42%),
+    radial-gradient(circle at 50% 50%, rgba(139,127,209,.22), transparent 55%),
+    var(--bg);
+  background-size:180% 180%;
+  animation:heroDrift 24s ease-in-out infinite;
+}
+@keyframes heroDrift{
+  0%{background-position:0% 0%;}
+  50%{background-position:100% 60%;}
+  100%{background-position:0% 0%;}
+}
+.hero-content{position:relative; z-index:1; max-width:760px;}
+.hero-title{
+  font-size:clamp(2.6rem, 7vw, 5rem); line-height:1.05; margin-bottom:1.4rem;
+  text-shadow:0 4px 40px rgba(0,0,0,.5);
+}
+.hero-title em{color:var(--gold); font-style:italic;}
+.hero-bio{font-size:1.05rem; color:var(--cream-dim); max-width:600px; margin:0 auto 2.4rem;}
+.hero-cta{
+  background:transparent!important; border:1px solid var(--gold); color:var(--gold)!important;
+  border-radius:40px; padding:0 34px; letter-spacing:2px; font-size:.78rem; text-transform:uppercase;
+  font-weight:600; box-shadow:none!important; transition:all .3s ease;
+}
+.hero-cta:hover{background:var(--gold)!important; color:#1a1208!important;}
+.scroll-cue{
+  position:absolute; bottom:32px; left:50%; transform:translateX(-50%); z-index:1;
+  color:var(--cream-dim); animation:bob 2.2s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,10px);}}
+
+/* ---------- ERAS / COLLAPSIBLE TIMELINE ---------- */
+.eras-section{padding:7rem 0; background:var(--bg);}
+.collapsible.era-collapsible{
+  border:none; background:transparent; box-shadow:none;
+}
+.era-collapsible li{margin-bottom:14px;}
+.era-collapsible .collapsible-header{
+  background:var(--bg-2); border:1px solid rgba(243,237,224,.08);
+  border-left:5px solid var(--era-color, var(--gold));
+  border-radius:6px; padding:1.1rem 1.4rem; display:flex; align-items:center;
+  transition:background .25s ease, box-shadow .25s ease;
+}
+.era-collapsible .collapsible-header:hover{
+  background:var(--bg-3); box-shadow:0 0 30px -8px var(--era-color, var(--gold));
+}
+.era-collapsible .collapsible-header .era-year{
+  font-family:var(--font-body); font-size:.72rem; letter-spacing:2px; color:var(--era-color, var(--gold));
+  font-weight:700; min-width:78px;
+}
+.era-collapsible .collapsible-header .era-name{
+  font-family:var(--font-display); font-size:1.3rem; color:var(--cream); flex:1; margin-left:1rem;
+}
+.era-collapsible .collapsible-header i{color:var(--cream-dim);}
+.era-collapsible .collapsible-body{
+  background:var(--bg-2); border:1px solid rgba(243,237,224,.08); border-top:none;
+  border-radius:0 0 6px 6px; padding:2rem;
+}
+.era-visual{width:100%; border-radius:6px; overflow:hidden; box-shadow:0 20px 50px -20px rgba(0,0,0,.6);}
+.era-visual svg{display:block; width:100%; height:auto;}
+.era-desc{color:var(--cream-dim); margin-bottom:1.2rem;}
+.era-chip{
+  display:inline-block; padding:.4rem 1rem; margin:0 .5rem .5rem 0; border-radius:30px;
+  border:1px solid var(--era-color, var(--gold)); color:var(--era-color, var(--gold));
+  font-size:.78rem; letter-spacing:.5px;
+}
+.era-audio{margin-top:1.4rem; width:100%; max-width:340px;}
+.era-audio-label{font-size:.72rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--cream-dim); margin-bottom:.5rem; display:block;}
+audio{width:100%; filter:invert(0.85) hue-rotate(180deg); border-radius:30px;}
+
+/* ---------- CAROUSEL ---------- */
+.carousel-section{padding:6rem 0 8rem; background:var(--bg-2);}
+.carousel{height:420px; margin-top:2rem;}
+.carousel .carousel-item{
+  width:340px; height:420px; border-radius:10px; overflow:hidden; position:relative;
+  box-shadow:0 25px 60px -20px rgba(0,0,0,.7);
+}
+.carousel .carousel-item svg{width:100%; height:100%; display:block;}
+.carousel-caption{
+  position:absolute; left:0; right:0; bottom:0; padding:1.4rem;
+  background:linear-gradient(to top, rgba(0,0,0,.85), transparent);
+}
+.carousel-caption .cc-year{font-size:.68rem; letter-spacing:2px; color:var(--gold); display:block; margin-bottom:.2rem;}
+.carousel-caption h4{font-size:1.3rem; color:#fff;}
+
+/* ---------- MASTERS ---------- */
+.masters-section{
+  padding:7rem 0; background:linear-gradient(160deg, #17090a 0%, #0b0b0d 60%);
+  border-top:1px solid rgba(179,54,59,.25); border-bottom:1px solid rgba(179,54,59,.25);
+}
+.masters-section h2{color:var(--crimson); font-size:2.6rem; line-height:1.15; margin-bottom:1.4rem;}
+.masters-section p{margin-bottom:1.1rem;}
+.masters-btn{
+  color:var(--crimson)!important; border-bottom:1px solid var(--crimson); padding-left:0!important;
+  letter-spacing:1px; text-transform:uppercase; font-size:.8rem; background:transparent!important; box-shadow:none!important;
+}
+.masters-visual{filter:drop-shadow(0 20px 60px rgba(179,54,59,.35));}
+
+/* ---------- TOUR ---------- */
+.tour-section{position:relative; padding:7rem 0; overflow:hidden;}
+.tour-bg-video{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;
+  filter:saturate(1.7) hue-rotate(260deg) brightness(.35) blur(1px);
+}
+.tour-overlay{
+  position:absolute; inset:0; z-index:1;
+  background:linear-gradient(160deg, rgba(11,11,13,.55), rgba(11,11,13,.9));
+}
+.tour-content{position:relative; z-index:2;}
+.tour-section h2{font-size:2.6rem; margin-bottom:1rem;}
+.stat-card{
+  background:rgba(20,19,23,.7)!important; border:1px solid rgba(243,237,224,.12);
+  border-radius:10px!important; backdrop-filter:blur(6px);
+}
+.stat-card .card-content{padding:1.6rem 1rem;}
+.stat-number{font-family:var(--font-display); font-size:2.6rem; color:var(--gold); font-weight:700;}
+.stat-label{font-size:.72rem; letter-spacing:2px; text-transform:uppercase; color:var(--cream-dim);}
+.tour-cta{
+  background:var(--gold)!important; color:#1a1208!important; border-radius:40px; padding:0 36px;
+  font-weight:700; letter-spacing:1.5px; text-transform:uppercase; font-size:.8rem;
+}
+
+/* ---------- CONTACT ---------- */
+.contact-section{padding:7rem 0; background:var(--bg);}
+.contact-form .input-field input, .contact-form .input-field textarea{
+  color:var(--cream)!important; border-bottom:1px solid rgba(243,237,224,.25)!important;
+}
+.contact-form .input-field input:focus, .contact-form .input-field textarea:focus{
+  border-bottom:1px solid var(--gold)!important; box-shadow:0 1px 0 0 var(--gold)!important;
+}
+.contact-form label{color:var(--cream-dim)!important;}
+.contact-form label.active{color:var(--gold)!important;}
+.contact-form .prefix.active{color:var(--gold)!important;}
+.contact-form .prefix{color:var(--cream-dim)!important;}
+.dropdown-content{background:var(--bg-3)!important;}
+.dropdown-content li>a, .dropdown-content li>span{color:var(--cream)!important;}
+.select-wrapper input.select-dropdown{color:var(--cream)!important; border-bottom:1px solid rgba(243,237,224,.25)!important;}
+.select-wrapper svg{fill:var(--cream-dim)!important;}
+.contact-submit{
+  background:var(--gold)!important; color:#1a1208!important; border-radius:40px; padding:0 40px;
+  font-weight:700; letter-spacing:1.5px; text-transform:uppercase; font-size:.8rem;
+}
+
+/* ---------- FOOTER ---------- */
+.page-footer{background:var(--bg-2); padding-top:4rem; border-top:1px solid rgba(243,237,224,.08);}
+.page-footer h5{font-family:var(--font-display); color:var(--cream); margin-bottom:1rem;}
+.page-footer p, .page-footer a{color:var(--cream-dim)!important; font-size:.88rem;}
+.page-footer ul li{margin-bottom:.5rem;}
+.app-badges{display:flex; gap:.8rem; flex-wrap:wrap; margin-top:.5rem;}
+.app-badge{
+  display:flex; align-items:center; gap:.6rem; border:1px solid rgba(243,237,224,.2); border-radius:8px;
+  padding:.55rem 1rem; transition:border-color .25s ease, background .25s ease;
+}
+.app-badge:hover{border-color:var(--gold); background:rgba(205,164,94,.08);}
+.app-badge i{font-size:1.4rem; color:var(--cream);}
+.app-badge .badge-text{display:flex; flex-direction:column; line-height:1.15;}
+.app-badge .badge-text small{font-size:.6rem; color:var(--cream-dim);}
+.app-badge .badge-text span{font-size:.82rem; font-weight:600; color:var(--cream);}
+.footer-copyright{background:#0d0d0f!important; padding:1.2rem 0; font-size:.75rem; color:var(--cream-dim)!important;}
+.footer-copyright a{color:var(--cream-dim)!important;}
+.social-icons a{color:var(--cream-dim); margin-right:1rem; font-size:1.1rem; transition:color .2s ease;}
+.social-icons a:hover{color:var(--gold);}
+
+/* ---------- BACK TO TOP ---------- */
+.back-to-top{
+  position:fixed; bottom:24px; right:24px; z-index:998; background:var(--gold)!important;
+  opacity:0; pointer-events:none; transform:translateY(20px); transition:all .35s ease;
+}
+.back-to-top.show{opacity:1; pointer-events:auto; transform:translateY(0);}
+.back-to-top i{color:#1a1208;}
+
+/* ---------- responsive tweaks ---------- */
+@media (max-width:600px){
+  .carousel{height:340px;}
+  .carousel .carousel-item{width:260px; height:340px;}
+  .masters-section h2{font-size:2rem;}
+}
