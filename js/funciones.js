@@ -41,4 +41,14 @@ document.addEventListener('DOMContentLoaded', function () {
     M.updateTextFields();
   });
 
+  // ---- Era audio players: only one playing at a time ----
+  const eraAudios = document.querySelectorAll('.era-audio audio');
+  eraAudios.forEach(audio => {
+    audio.addEventListener('play', () => {
+      eraAudios.forEach(other => {
+        if (other !== audio) other.pause();
+      });
+    });
+  });
+
 });

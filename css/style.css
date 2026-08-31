@@ -63,9 +63,13 @@ nav{
   border-bottom:1px solid rgba(243,237,224,.08);
   transition:background .3s ease;
 }
+nav .nav-wrapper{position:relative;}
 nav .brand-logo{
   font-family:var(--font-display); font-weight:700; font-size:1.5rem; color:var(--cream)!important;
-  left:1rem;
+  position:absolute; top:50%; left:1rem; transform:translateY(-50%);
+}
+nav .sidenav-trigger{
+  float:right; margin:0 8px 0 0;
 }
 nav ul a{
   color:var(--cream-dim)!important; font-size:.82rem; letter-spacing:1.5px; text-transform:uppercase;
@@ -80,6 +84,11 @@ nav ul a.tickets-nav-btn{
 .sidenav{background:var(--bg-2);}
 .sidenav li a{color:var(--cream-dim); text-transform:uppercase; font-size:.85rem; letter-spacing:1px;}
 .sidenav li a:hover{background:rgba(205,164,94,.12); color:var(--gold);}
+/* Materialize hardcodes sidenav icon color to rgba(0,0,0,.54), which is
+   basically invisible against the dark sidenav background here — override it. */
+.sidenav li>a>i.material-icons{color:var(--cream-dim)!important;}
+.sidenav li>a:hover>i.material-icons{color:var(--gold)!important;}
+.sidenav li>a.tickets-nav-btn{color:#1a1208!important;}
 
 /* ---------- HERO ---------- */
 .hero-section{
