@@ -400,7 +400,7 @@
         </div>
     </section>
 
-    <!-- ============ CAROUSEL ============ -->
+    <!-- ============ ERAS GALLERY (scroll-snap) ============ -->
     <section id="carousel-section" class="carousel-section">
         <div class="container center-align">
             <span class="eyebrow reveal">Galería</span>
@@ -408,72 +408,50 @@
             <p class="section-sub reveal">Seis eras, seis paletas, un mismo hilo narrativo. Desliza para recorrerlas.
             </p>
         </div>
-        <div class="carousel carousel-slider center reveal" data-indicators="true">
-            <a class="carousel-item" href="#!">
-                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-                    <rect width="400" height="300" fill="#241a0d" />
-                    <circle cx="320" cy="65" r="70" fill="#cda45e" opacity="0.25" />
-                    <ellipse cx="150" cy="205" rx="80" ry="65" fill="none" stroke="#cda45e" stroke-width="3" />
-                </svg>
-                <div class="carousel-caption"><span class="cc-year">2008 / 2021</span>
-                    <h4>Fearless</h4>
+
+        <div class="eras-gallery reveal">
+            <div class="eras-gallery-track" id="erasGalleryTrack">
+                <div class="gallery-card">
+                    <img src="images/fearless.png" alt="Fearless (Taylor's Version)">
+                    <div class="carousel-caption"><span class="cc-year">2008 / 2021</span>
+                        <h4>Fearless</h4>
+                    </div>
                 </div>
-            </a>
-            <a class="carousel-item" href="#!">
-                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-                    <rect width="400" height="300" fill="#0a1826" />
-                    <rect x="60" y="150" width="26" height="150" fill="#6fa8c9" opacity="0.6" />
-                    <rect x="128" y="100" width="34" height="200" fill="#6fa8c9" opacity="0.85" />
-                    <rect x="200" y="140" width="24" height="160" fill="#6fa8c9" opacity="0.55" />
-                </svg>
-                <div class="carousel-caption"><span class="cc-year">2014 / 2023</span>
-                    <h4>1989</h4>
+                <div class="gallery-card">
+                    <img src="images/1989.jpg" alt="1989 (Taylor's Version)">
+                    <div class="carousel-caption"><span class="cc-year">2014 / 2023</span>
+                        <h4>1989</h4>
+                    </div>
                 </div>
-            </a>
-            <a class="carousel-item" href="#!">
-                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-                    <rect width="400" height="300" fill="#0c0d0c" />
-                    <line x1="80" y1="300" x2="95" y2="30" stroke="#8b968a" stroke-width="8" opacity="0.7" />
-                    <line x1="180" y1="300" x2="165" y2="10" stroke="#8b968a" stroke-width="10" opacity="0.5" />
-                    <line x1="290" y1="300" x2="305" y2="45" stroke="#8b968a" stroke-width="9" opacity="0.6" />
-                </svg>
-                <div class="carousel-caption"><span class="cc-year">2020</span>
-                    <h4>folklore</h4>
+                <div class="gallery-card">
+                    <img src="images/folklore.jpg" alt="folklore">
+                    <div class="carousel-caption"><span class="cc-year">2020</span>
+                        <h4>folklore</h4>
+                    </div>
                 </div>
-            </a>
-            <a class="carousel-item" href="#!">
-                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-                    <rect width="400" height="300" fill="#050506" />
-                    <polyline points="90,50 170,50 120,150 210,150 100,270 150,170 90,170" fill="none" stroke="#9aa0ab"
-                        stroke-width="5" opacity="0.85" />
-                </svg>
-                <div class="carousel-caption"><span class="cc-year">2017</span>
-                    <h4>reputation</h4>
+                <div class="gallery-card">
+                    <img src="images/reputation.jpg" alt="reputation">
+                    <div class="carousel-caption"><span class="cc-year">2017</span>
+                        <h4>reputation</h4>
+                    </div>
                 </div>
-            </a>
-            <a class="carousel-item" href="#!">
-                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-                    <rect width="400" height="300" fill="#22182a" />
-                    <circle cx="110" cy="100" r="50" fill="#e8a0b4" opacity="0.55" />
-                    <circle cx="290" cy="170" r="65" fill="#e8a0b4" opacity="0.35" />
-                </svg>
-                <div class="carousel-caption"><span class="cc-year">2019</span>
-                    <h4>Lover</h4>
+                <div class="gallery-card">
+                    <img src="images/lover.jpg" alt="Lover">
+                    <div class="carousel-caption"><span class="cc-year">2019</span>
+                        <h4>Lover</h4>
+                    </div>
                 </div>
-            </a>
-            <a class="carousel-item" href="#!">
-                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-                    <rect width="400" height="300" fill="#0a0716" />
-                    <circle cx="300" cy="80" r="55" fill="#8b7fd1" opacity="0.85" />
-                    <circle cx="60" cy="60" r="2" fill="#fff" />
-                    <circle cx="150" cy="200" r="2" fill="#fff" />
-                    <circle cx="200" cy="60" r="1.5" fill="#fff" />
-                    <circle cx="40" cy="220" r="2" fill="#fff" />
-                </svg>
-                <div class="carousel-caption"><span class="cc-year">2022</span>
-                    <h4>Midnights</h4>
+                <div class="gallery-card">
+                    <img src="images/midnights.jpg" alt="Midnights">
+                    <div class="carousel-caption"><span class="cc-year">2022</span>
+                        <h4>Midnights</h4>
+                    </div>
                 </div>
-            </a>
+            </div>
+            <button class="gallery-nav gallery-nav-prev" aria-label="Anterior"><i
+                    class="material-icons">chevron_left</i></button>
+            <button class="gallery-nav gallery-nav-next" aria-label="Siguiente"><i
+                    class="material-icons">chevron_right</i></button>
         </div>
     </section>
 

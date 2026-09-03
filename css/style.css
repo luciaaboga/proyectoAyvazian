@@ -170,14 +170,42 @@ nav ul a.tickets-nav-btn{
 .era-audio-label{font-size:.72rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--cream-dim); margin-bottom:.5rem; display:block;}
 audio{width:100%; filter:invert(0.85) hue-rotate(180deg); border-radius:30px;}
 
-/* ---------- CAROUSEL ---------- */
+/* ---------- ERAS GALLERY (scroll-snap) ---------- */
 .carousel-section{padding:6rem 0 8rem; background:var(--bg-2);}
-.carousel{height:420px; margin-top:2rem;}
-.carousel .carousel-item{
-  width:340px; height:420px; border-radius:10px; overflow:hidden; position:relative;
-  box-shadow:0 25px 60px -20px rgba(0,0,0,.7);
+.eras-gallery{
+  position:relative; margin-top:2rem;
 }
-.carousel .carousel-item svg{width:100%; height:100%; display:block;}
+.eras-gallery-track{
+  display:flex; align-items:center; gap:1.5rem; overflow-x:auto; scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch; scrollbar-width:none;
+  padding:2.5rem calc(50% - 140px) 3rem; /* 140px = mitad del ancho FIJO de la card (280px) */
+}
+.eras-gallery-track::-webkit-scrollbar{display:none;}
+
+.gallery-card{
+  position:relative; flex:0 0 auto; width:280px; height:360px; border-radius:10px;
+  overflow:hidden; scroll-snap-align:center; box-shadow:0 25px 60px -20px rgba(0,0,0,.7);
+  opacity:.4; transform:scale(.82); filter:blur(1px);
+  transition:transform .45s cubic-bezier(.22,.68,0,1.71), opacity .4s ease, filter .4s ease;
+  cursor:pointer;
+}
+.gallery-card.is-active{
+  opacity:1; transform:scale(1.2); filter:blur(0);
+  z-index:2; box-shadow:0 30px 70px -20px rgba(0,0,0,.85);
+}
+
+.gallery-card img{
+  width:100%; height:100%; display:block; object-fit:cover;
+}
+.gallery-nav{
+  position:absolute; top:50%; transform:translateY(-50%); z-index:2; width:44px; height:44px;
+  border-radius:50%; border:1px solid rgba(243,237,224,.25); background:rgba(11,11,13,.7);
+  color:var(--cream); display:flex; align-items:center; justify-content:center; cursor:pointer;
+  transition:background .2s ease, border-color .2s ease;
+}
+.gallery-nav:hover{background:var(--gold); border-color:var(--gold); color:#1a1208;}
+.gallery-nav-prev{left:8px;}
+.gallery-nav-next{right:8px;}
 .carousel-caption{
   position:absolute; left:0; right:0; bottom:0; padding:1.4rem;
   background:linear-gradient(to top, rgba(0,0,0,.85), transparent);
@@ -271,9 +299,9 @@ audio{width:100%; filter:invert(0.85) hue-rotate(180deg); border-radius:30px;}
 .back-to-top.show{opacity:1; pointer-events:auto; transform:translateY(0);}
 .back-to-top i{color:#1a1208;}
 
-/* ---------- responsive tweaks ---------- */
 @media (max-width:600px){
-  .carousel{height:340px;}
-  .carousel .carousel-item{width:260px; height:340px;}
-  .masters-section h2{font-size:2rem;}
+  .eras-gallery-track{ padding:2rem calc(50% - 39vw) 2.5rem; }
+  .gallery-card{ width:78vw; height:340px; transform:scale(.86); }
+  .gallery-card.is-active{ transform:scale(1); }
+  .gallery-nav{display:none;}
 }
