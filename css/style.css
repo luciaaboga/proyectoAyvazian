@@ -1,11 +1,3 @@
-/* ============================================================
-   THE ERAS ANTHOLOGY — Design tokens
-   Palette: near-black stage (#0b0b0d) + six era accents.
-   Display: Playfair Display (serif, editorial, "liner notes")
-   Body:    Inter (clean, modern)
-   Signature: collapsible "vinyl sleeve" timeline whose left
-   edge and glow always carry that era's own color.
-   ============================================================ */
 :root{
   --bg:#0b0b0d;
   --bg-2:#141317;
@@ -84,8 +76,6 @@ nav ul a.tickets-nav-btn{
 .sidenav{background:var(--bg-2);}
 .sidenav li a{color:var(--cream-dim); text-transform:uppercase; font-size:.85rem; letter-spacing:1px;}
 .sidenav li a:hover{background:rgba(205,164,94,.12); color:var(--gold);}
-/* Materialize hardcodes sidenav icon color to rgba(0,0,0,.54), which is
-   basically invisible against the dark sidenav background here — override it. */
 .sidenav li>a>i.material-icons{color:var(--cream-dim)!important;}
 .sidenav li>a:hover>i.material-icons{color:var(--gold)!important;}
 .sidenav li>a.tickets-nav-btn{color:#1a1208!important;}
@@ -158,8 +148,19 @@ nav ul a.tickets-nav-btn{
   background:var(--bg-2); border:1px solid rgba(243,237,224,.08); border-top:none;
   border-radius:0 0 6px 6px; padding:2rem;
 }
-.era-visual{width:100%; border-radius:6px; overflow:hidden; box-shadow:0 20px 50px -20px rgba(0,0,0,.6);}
-.era-visual svg{display:block; width:100%; height:auto;}
+.era-visual{
+  width:100%;
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:0 20px 50px -20px rgba(0,0,0,.6);
+  aspect-ratio: 400 / 300; 
+}
+.era-visual img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
 .era-desc{color:var(--cream-dim); margin-bottom:1.2rem;}
 .era-chip{
   display:inline-block; padding:.4rem 1rem; margin:0 .5rem .5rem 0; border-radius:30px;
@@ -171,6 +172,7 @@ nav ul a.tickets-nav-btn{
 audio{width:100%; filter:invert(0.85) hue-rotate(180deg); border-radius:30px;}
 
 /* ---------- ERAS GALLERY (scroll-snap) ---------- */
+/* ---------- ERAS GALLERY (scroll-snap) ---------- */
 .carousel-section{padding:6rem 0 8rem; background:var(--bg-2);}
 .eras-gallery{
   position:relative; margin-top:2rem;
@@ -178,7 +180,7 @@ audio{width:100%; filter:invert(0.85) hue-rotate(180deg); border-radius:30px;}
 .eras-gallery-track{
   display:flex; align-items:center; gap:1.5rem; overflow-x:auto; scroll-snap-type:x mandatory;
   -webkit-overflow-scrolling:touch; scrollbar-width:none;
-  padding:2.5rem calc(50% - 140px) 3rem; /* 140px = mitad del ancho FIJO de la card (280px) */
+  padding:2.5rem calc(50% - 140px) 3rem;
 }
 .eras-gallery-track::-webkit-scrollbar{display:none;}
 
@@ -198,7 +200,7 @@ audio{width:100%; filter:invert(0.85) hue-rotate(180deg); border-radius:30px;}
   width:100%; height:100%; display:block; object-fit:cover;
 }
 .gallery-nav{
-  position:absolute; top:50%; transform:translateY(-50%); z-index:2; width:44px; height:44px;
+  position:absolute; top:50%; transform:translateY(-50%); z-index:3; width:44px; height:44px;
   border-radius:50%; border:1px solid rgba(243,237,224,.25); background:rgba(11,11,13,.7);
   color:var(--cream); display:flex; align-items:center; justify-content:center; cursor:pointer;
   transition:background .2s ease, border-color .2s ease;
@@ -213,6 +215,29 @@ audio{width:100%; filter:invert(0.85) hue-rotate(180deg); border-radius:30px;}
 .carousel-caption .cc-year{font-size:.68rem; letter-spacing:2px; color:var(--gold); display:block; margin-bottom:.2rem;}
 .carousel-caption h4{font-size:1.3rem; color:#fff;}
 
+/* ---------- responsive: eras gallery ---------- */
+@media (max-width:992px){
+  .eras-gallery-track{ padding:2.2rem calc(50% - 120px) 2.8rem; }
+  .gallery-card{ width:240px; height:320px; }
+}
+
+@media (max-width:600px){
+  .eras-gallery-track{ padding:2rem calc(50% - 39vw) 2.5rem; gap:1rem; }
+  .gallery-card{ width:78vw; max-width:300px; height:340px; transform:scale(.86); }
+  .gallery-card.is-active{ transform:scale(1); }
+  .gallery-nav{
+    width:36px; height:36px;
+  }
+  .gallery-nav-prev{ left:4px; }
+  .gallery-nav-next{ right:4px; }
+  .gallery-nav i{ font-size:1.3rem; }
+}
+
+@media (max-width:380px){
+  .gallery-card{ width:82vw; height:300px; }
+  .gallery-nav{ width:32px; height:32px; }
+}
+
 /* ---------- MASTERS ---------- */
 .masters-section{
   padding:7rem 0; background:linear-gradient(160deg, #17090a 0%, #0b0b0d 60%);
@@ -224,8 +249,19 @@ audio{width:100%; filter:invert(0.85) hue-rotate(180deg); border-radius:30px;}
   color:var(--crimson)!important; border-bottom:1px solid var(--crimson); padding-left:0!important;
   letter-spacing:1px; text-transform:uppercase; font-size:.8rem; background:transparent!important; box-shadow:none!important;
 }
-.masters-visual{filter:drop-shadow(0 20px 60px rgba(179,54,59,.35));}
-
+.masters-visual{
+  filter:drop-shadow(0 20px 60px rgba(179,54,59,.35));
+  max-width:420px;
+  margin:0 auto;
+}
+.masters-visual img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:10px;
+  aspect-ratio: 400 / 320; 
+  object-fit:cover;
+}
 /* ---------- TOUR ---------- */
 .tour-section{position:relative; padding:7rem 0; overflow:hidden;}
 .tour-bg-video{
