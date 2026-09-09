@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Eras Anthology — Un viaje por la trayectoria musical</title>
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper container">
+            <a href="#hero" class="brand-logo">The Anthology</a>
+            <a href="#" data-target="mobile-sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#eras">Eras</a></li>
+                <li><a href="#carousel-section">Timeline</a></li>
+                <li><a href="#masters">The Masters</a></li>
+                <li><a href="#tour">The Tour</a></li>
+                <li><a href="#contact">Contacto</a></li>
+                <li><a href="#tour" class="tickets-nav-btn">Página Web</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-sidenav">
+        <li><a href="#hero"><i class="material-icons">home</i>Inicio</a></li>
+        <li><a href="#eras"><i class="material-icons">timeline</i>Eras</a></li>
+        <li><a href="#carousel-section"><i class="material-icons">collections</i>Timeline visual</a></li>
+        <li><a href="#masters"><i class="material-icons">gavel</i>The Masters</a></li>
+        <li><a href="#tour"><i class="material-icons">confirmation_number</i>The Tour</a></li>
+        <li><a href="#contact"><i class="material-icons">mail</i>Contacto</a></li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a href="#tour" class="tickets-nav-btn" style="margin:12px 16px; display:inline-block;">Tickets</a></li>
+    </ul>
+
+<aside class="desktop-sidebar" id="desktopSidebar">
+    <a href="#hero" class="sidebar-brand">The Anthology</a>
+
+    <a href="#hero" class="sidebar-link"><i class="material-icons">home</i>Inicio</a>
+    <a href="#eras" class="sidebar-link"><i class="material-icons">timeline</i>Eras</a>
+    <a href="#carousel-section" class="sidebar-link"><i class="material-icons">collections</i>Galería</a>
+    <a href="#masters" class="sidebar-link"><i class="material-icons">gavel</i>Masters</a>
+    <a href="#tour" class="sidebar-link"><i class="material-icons">confirmation_number</i>Tour</a>
+    <a href="#contact" class="sidebar-link"><i class="material-icons">mail</i>Contacto</a>
+
+    <div class="sidebar-fact">
+        <span class="sidebar-fact-label">Dato curioso</span>
+        <span class="sidebar-fact-text" id="sidebarFactText">Fearless fue el primer álbum en ganar el Grammy al Álbum del Año con una artista country como solista.</span>
+    </div>
+
+    <a href="https://www.taylorswift.com/" class="sidebar-tickets-btn" target="_blank" rel="noopener">Página Web</a>
+</aside>
+
+    <header id="hero" class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <span class="eyebrow">Una retrospectiva no oficial de fan</span>
+            <h1 class="hero-title">The Eras <em>Anthology</em></h1>
+            <p class="hero-bio">
+                De las guitarras acústicas de un pueblo de Pensilvania a los estadios más grandes del planeta:
+                un recorrido por las historias, los sonidos y las reinvenciones de una artista que convirtió
+                cada álbum en un universo propio — y que luego decidió volver a grabarlos para recuperar su voz.
+            </p>
+            <a href="#eras" class="btn-large waves-effect hero-cta">Explorar el Viaje</a>
+        </div>
+        <a href="#eras" class="scroll-cue"><i class="material-icons">keyboard_arrow_down</i></a>
+    </header>
+
+    <section id="eras" class="eras-section">
+        <div class="container center-align">
+            <span class="eyebrow reveal">La línea temporal</span>
+            <h2 class="section-title reveal">Las Eras</h2>
+            <p class="section-sub reveal">
+                Cada álbum, un capítulo distinto — su propia paleta, su propio sonido, su propia forma de contar
+                la misma historia en constante evolución. Toca cada era para abrirla.
+            </p>
+        </div>
+
+        <div class="container">
+            <ul class="collapsible era-collapsible reveal" data-collapsible="accordion">
+
+                <li>
+                    <div class="collapsible-header" style="--era-color:#cda45e;">
+                        <span class="era-year">2021 (2008)</span>
+                        <span class="era-name">Fearless <em style="font-style:italic; color:#cda45e;">(Taylor's
+                                Version)</em></span>
+                        <i class="material-icons">add</i>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="row" style="margin-bottom:0;">
+                            <div class="col s12 m5">
+                                <div class="era-visual">
+                                    <img src="img/fearless.jpg" alt="Portada del álbum Fearless (Taylor's Version)" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="col s12 m7">
+                                <p class="era-desc">La magia del romance de instituto y la perfección country-pop,
+                                    reclamada.
+                                    Un cuento de hadas escrito con guitarra acústica que redefinió lo que un álbum debut
+                                    podía ser,
+                                    y que once años después volvió a grabarse nota por nota, para que la historia
+                                    perteneciera a su autora.</p>
+                                <div class="era-chip">Love Story</div>
+                                <div class="era-chip">You Belong With Me</div>
+                                <div class="era-audio">
+                                    <span class="era-audio-label">Vista previa del ambiente sonoro</span>
+                                    <audio controls preload="metadata">
+                                        <source src="audios/lovestory.mp3" type="audio/mpeg">
+                                        Tu navegador no soporta audio.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="collapsible-header" style="--era-color:#6fa8c9;">
+                        <span class="era-year">2023 (2014)</span>
+                        <span class="era-name">1989 <em style="font-style:italic; color:#6fa8c9;">(Taylor's
+                                Version)</em></span>
+                        <i class="material-icons">add</i>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="row" style="margin-bottom:0;">
+                            <div class="col s12 m5">
+                                <div class="era-visual">
+                                    <img src="img/1989.jpg" alt="Portada del álbum 1989 (Taylor's Version)" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="col s12 m7">
+                                <p class="era-desc">La obra maestra del synth-pop que la consolidó como un ícono pop
+                                    global.
+                                    Un giro deliberado hacia Nueva York, hacia los sintetizadores y hacia una nueva
+                                    forma de escribir
+                                    sobre el amor: más brillante, más urbana, más consciente de sí misma.</p>
+                                <div class="era-chip">Style</div>
+                                <div class="era-chip">Blank Space</div>
+                                <div class="era-audio">
+                                    <span class="era-audio-label">Vista previa del ambiente sonoro</span>
+                                    <audio controls preload="metadata">
+                                        <source src="audios/style.mp3" type="audio/mpeg">
+                                        Tu navegador no soporta audio.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="collapsible-header" style="--era-color:#8b968a;">
+                        <span class="era-year">2020</span>
+                        <span class="era-name">folklore</span>
+                        <i class="material-icons">add</i>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="row" style="margin-bottom:0;">
+                            <div class="col s12 m5">
+                                <div class="era-visual">
+                                    <img src="img/folklore.png" alt="Portada del álbum folklore" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="col s12 m7">
+                                <p class="era-desc">Un giro indie-folk hacia el escapismo, el mito y la narración
+                                    minuciosa.
+                                    Escrito y grabado casi en secreto, cambió la escala de los estadios por la intimidad
+                                    del bosque,
+                                    y la autobiografía por personajes inventados que aún así se sentían profundamente
+                                    reales.</p>
+                                <div class="era-chip">cardigan</div>
+                                <div class="era-chip">august</div>
+                                <div class="era-audio">
+                                    <span class="era-audio-label">Vista previa del ambiente sonoro</span>
+                                    <audio controls preload="metadata">
+                                        <source src="audios/august.mp3" type="audio/mpeg">
+                                        Tu navegador no soporta audio.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="collapsible-header" style="--era-color:#9aa0ab;">
+                        <span class="era-year">2017</span>
+                        <span class="era-name">reputation</span>
+                        <i class="material-icons">add</i>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="row" style="margin-bottom:0;">
+                            <div class="col s12 m5">
+                                <div class="era-visual">
+                                    <img src="img/reputation.jpg" alt="Portada del álbum reputation" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="col s12 m7">
+                                <p class="era-desc">La era de la reinvención afilada: sintetizadores oscuros, actitud
+                                    sin disculpas
+                                    y una narrativa que jugaba deliberadamente con la percepción pública. El sonido de
+                                    alguien
+                                    tomando el control del relato sobre sí misma.</p>
+                                <div class="era-chip">...Ready For It?</div>
+                                <div class="era-chip">Delicate</div>
+                                <div class="era-audio">
+                                    <span class="era-audio-label">Vista previa del ambiente sonoro</span>
+                                    <audio controls preload="metadata">
+                                        <source src="audios/delicate.mp3" type="audio/mpeg">
+                                        Tu navegador no soporta audio.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="collapsible-header" style="--era-color:#e8a0b4;">
+                        <span class="era-year">2019</span>
+                        <span class="era-name">Lover</span>
+                        <i class="material-icons">add</i>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="row" style="margin-bottom:0;">
+                            <div class="col s12 m5">
+                                <div class="era-visual">
+                                    <img src="img/lover.jpg" alt="Portada del álbum Lover" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="col s12 m7">
+                                <p class="era-desc">Un cielo pastel de optimismo declarado. Después de la oscuridad de
+                                    reputation,
+                                    una explosión de color, corazones y alegría sin ironía — la celebración más abierta
+                                    del amor
+                                    en toda su discografía.</p>
+                                <div class="era-chip">Lover</div>
+                                <div class="era-chip">Cruel Summer</div>
+                                <div class="era-audio">
+                                    <span class="era-audio-label">Vista previa del ambiente sonoro</span>
+                                    <audio controls preload="metadata">
+                                        <source src="audios/lover.mp3" type="audio/mpeg">
+                                        Tu navegador no soporta audio.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="collapsible-header" style="--era-color:#8b7fd1;">
+                        <span class="era-year">2022</span>
+                        <span class="era-name">Midnights</span>
+                        <i class="material-icons">add</i>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="row" style="margin-bottom:0;">
+                            <div class="col s12 m5">
+                                <div class="era-visual">
+                                    <img src="img/midnight.jpg" alt="Portada del álbum Midnights" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="col s12 m7">
+                                <p class="era-desc">Trece noches de insomnio convertidas en canción. Un regreso a los
+                                    sintetizadores
+                                    introspectivos, una colección de pensamientos que solo aparecen a la medianoche —
+                                    vulnerables,
+                                    filosos y profundamente personales.</p>
+                                <div class="era-chip">Anti-Hero</div>
+                                <div class="era-chip">Lavender Haze</div>
+                                <div class="era-audio">
+                                    <span class="era-audio-label">Vista previa del ambiente sonoro</span>
+                                    <audio controls preload="metadata">
+                                        <source src="audios/antihero.mp3" type="audio/mpeg">
+                                        Tu navegador no soporta audio.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </section>
+
+    <section id="carousel-section" class="carousel-section">
+        <div class="container center-align">
+            <span class="eyebrow reveal">Galería</span>
+            <h2 class="section-title reveal">El Recorrido Visual</h2>
+            <p class="section-sub reveal">Seis eras, seis paletas, un mismo hilo narrativo. Desliza para recorrerlas.
+            </p>
+        </div>
+
+        <div class="eras-gallery reveal">
+            <div class="eras-gallery-track" id="erasGalleryTrack">
+                <div class="gallery-card">
+                    <img src="images/fearless.png" alt="Fearless (Taylor's Version)">
+                    <div class="carousel-caption"><span class="cc-year">2008 / 2021</span>
+                        <h4>Fearless</h4>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="images/1989.jpg" alt="1989 (Taylor's Version)">
+                    <div class="carousel-caption"><span class="cc-year">2014 / 2023</span>
+                        <h4>1989</h4>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="images/folklore.jpg" alt="folklore">
+                    <div class="carousel-caption"><span class="cc-year">2020</span>
+                        <h4>folklore</h4>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="images/reputation.jpg" alt="reputation">
+                    <div class="carousel-caption"><span class="cc-year">2017</span>
+                        <h4>reputation</h4>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="images/lover.jpg" alt="Lover">
+                    <div class="carousel-caption"><span class="cc-year">2019</span>
+                        <h4>Lover</h4>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="images/midnights.jpg" alt="Midnights">
+                    <div class="carousel-caption"><span class="cc-year">2022</span>
+                        <h4>Midnights</h4>
+                    </div>
+                </div>
+            </div>
+            <button class="gallery-nav gallery-nav-prev" aria-label="Anterior"><i
+                    class="material-icons">chevron_left</i></button>
+            <button class="gallery-nav gallery-nav-next" aria-label="Siguiente"><i
+                    class="material-icons">chevron_right</i></button>
+        </div>
+    </section>
+
+    <section id="masters" class="masters-section">
+        <div class="container">
+            <div class="row valign-wrapper" style="margin-bottom:0;">
+                <div class="col s12 m6 reveal">
+                    <span class="eyebrow" style="color:#b3363b;">El conflicto</span>
+                    <h2>The Masters: Reclamando su Voz</h2>
+                    <p>La decisión sin precedentes de volver a grabar sus primeros seis álbumes no fue solo una
+                        movida de negocios; fue una declaración artística profunda sobre la propiedad y el legado.</p>
+                    <p>Al crear las versiones "Taylor's Version", se aseguró de que su arte le perteneciera —
+                        y en el proceso, cambió para siempre la forma en que la industria musical entiende el valor
+                        de los derechos de un artista sobre su propia obra.</p>
+                    <a href="https://es.wikipedia.org/wiki/Controversia_sobre_los_m%C3%A1steres_de_Taylor_Swift" class="masters-btn waves-effect">Conocer la historia completa<i
+                            class="material-icons right">arrow_forward</i></a>
+                </div>
+                <div class="col s12 m6 center-align reveal reveal-delay-2">
+                    <div class="masters-visual">
+                        <img src="img/masters.jpg" alt="The Masters — Taylor Swift" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tour" class="tour-section">
+        <video class="tour-bg-video" autoplay muted loop playsinline
+            poster="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+        </video>
+        <div class="tour-overlay"></div>
+        <div class="container tour-content center-align">
+            <span class="eyebrow reveal">El impacto global</span>
+            <h2 class="reveal">The Eras Tour</h2>
+            <p class="section-sub reveal" style="color:#e6e1d6;">Más de tres horas de música en vivo recorriendo cada
+                era —
+                convertida en el fenómeno cultural y económico más grande que ha visto la música en vivo.</p>
+
+            <div class="row reveal">
+                <div class="col s6 m3">
+                    <div class="card stat-card">
+                        <div class="card-content center-align">
+                            <div class="stat-number">152+</div>
+                            <div class="stat-label">Shows</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6 m3">
+                    <div class="card stat-card">
+                        <div class="card-content center-align">
+                            <div class="stat-number">51</div>
+                            <div class="stat-label">Ciudades</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6 m3">
+                    <div class="card stat-card">
+                        <div class="card-content center-align">
+                            <div class="stat-number">10M+</div>
+                            <div class="stat-label">Asistentes</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6 m3">
+                    <div class="card stat-card">
+                        <div class="card-content center-align">
+                            <div class="stat-number">44</div>
+                            <div class="stat-label">Canciones por show</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://www.taylorswift.com/" class="btn-large waves-effect tour-cta reveal">Conocé más en su página web</a>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="center-align">
+                <span class="eyebrow reveal">Mantente al día</span>
+                <h2 class="section-title reveal">Escríbenos</h2>
+                <p class="section-sub reveal">¿Preguntas, ideas o simplemente quieres contarnos tu era favorita? Este
+                    formulario es solo una demostración de interfaz.</p>
+            </div>
+
+            <div class="row">
+                <form class="col s12 m8 offset-m2 contact-form reveal" id="contactForm">
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <i class="material-icons prefix">person</i>
+                            <input id="name" type="text" class="validate" required>
+                            <label for="name">Nombre y Apellido</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <i class="material-icons prefix">phone</i>
+                            <input id="phone" type="tel" class="validate" pattern="[0-9+\-\s()]{6,}">
+                            <label for="phone">Teléfono</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <i class="material-icons prefix">email</i>
+                            <input id="email" type="email" class="validate" required>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <select id="favorite-era">
+                                <option value="" disabled selected>Elige tu era favorita</option>
+                                <option value="fearless">Fearless</option>
+                                <option value="1989">1989</option>
+                                <option value="folklore">folklore</option>
+                                <option value="reputation">reputation</option>
+                                <option value="lover">Lover</option>
+                                <option value="midnights">Midnights</option>
+                            </select>
+                            <label>Era Favorita</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">message</i>
+                            <textarea id="message" class="materialize-textarea"></textarea>
+                            <label for="message">Comentarios</label>
+                        </div>
+                    </div>
+                    <div class="center-align" style="margin-top:1rem;">
+                        <button class="btn-large waves-effect contact-submit" type="submit">
+                            Enviar <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m4">
+                    <h5>The Anthology</h5>
+                    <p>Un proyecto de fan hecho con cariño para celebrar diecisiete años de discografía, reinvención y
+                        storytelling.</p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/taylorswift?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/taylorswift13?s=20"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.tiktok.com/@taylorswift?is_from_webapp=1&sender_device=pc"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02?si=40fpMOR0QS-YyTbdg5yXZQ"><i class="fab fa-spotify"></i></a>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <h5>Enlaces</h5>
+                    <ul>
+                        <li><a href="#eras">Las Eras</a></li>
+                        <li><a href="#masters">The Masters</a></li>
+                        <li><a href="#tour">The Tour</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col s12 m4">
+    <h5>Compartí esta página</h5>
+    <p>¿Te gustó? Pasásela a otro fan de la discografía.</p>
+    <div class="share-buttons">
+        <button type="button" class="share-btn" id="shareBtn">
+            <i class="fas fa-share-nodes"></i>
+            <span>Compartir</span>
+        </button>
+        <button type="button" class="share-btn" id="copyLinkBtn">
+            <i class="fas fa-link"></i>
+            <span>Copiar link</span>
+        </button>
+    </div>
+</div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2026 The Eras Anthology — Proyecto de fan sin fines de lucro, no afiliado oficialmente.
+            </div>
+        </div>
+    </footer>
+
+    <a href="#hero" class="btn-floating btn-large waves-effect back-to-top" id="backToTop">
+        <i class="material-icons">arrow_upward</i>
+    </a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/funciones.js"></script>
+</body>
+
+</html>
