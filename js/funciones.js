@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  // ---- Materialize component inits ----
   M.Sidenav.init(document.querySelectorAll('.sidenav'));
   M.Collapsible.init(document.querySelectorAll('.collapsible'));
   M.FormSelect.init(document.querySelectorAll('select'));
@@ -13,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
     indicators: true
   });
 
-  // ---- Scroll reveal animations ----
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -25,14 +23,12 @@ document.addEventListener('DOMContentLoaded', function () {
   }, { threshold: 0.15 });
   revealEls.forEach(el => io.observe(el));
 
-  // ---- Back to top button ----
   const backToTop = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 600) backToTop.classList.add('show');
     else backToTop.classList.remove('show');
   });
 
-  // ---- Contact form demo submit ----
   const form = document.getElementById('contactForm');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -41,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function () {
     M.updateTextFields();
   });
 
-  // ---- Era audio players: only one playing at a time ----
   const eraAudios = document.querySelectorAll('.era-audio audio');
   eraAudios.forEach(audio => {
     audio.addEventListener('play', () => {
@@ -51,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // ---- Eras gallery: infinita, centrada y con escala en la card activa ----
   const galleryTrack = document.getElementById('erasGalleryTrack');
 
   if (galleryTrack) {
@@ -60,9 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (originalCards.length) {
       const setSize = originalCards.length;
 
-      // Clonamos el set completo una vez antes y una vez después,
-      // así queda: [clon][original][clon] y siempre hay contenido
-      // a los dos lados sin importar hacia dónde se scrollee.
       const fragBefore = document.createDocumentFragment();
       originalCards.forEach(card => fragBefore.appendChild(card.cloneNode(true)));
       galleryTrack.insertBefore(fragBefore, galleryTrack.firstChild);
@@ -75,6 +66,11 @@ document.addEventListener('DOMContentLoaded', function () {
       const prevBtn = document.querySelector('.gallery-nav-prev');
       const nextBtn = document.querySelector('.gallery-nav-next');
 
+      function centerCardInTrack(card, behavior = 'auto') {
+        const targetLeft = card.offsetLeft + card.offsetWidth / 2 - galleryTrack.clientWidth / 2;
+        galleryTrack.scrollTo({ left: targetLeft, behavior });
+      }
+
       function getClosestIndex() {
         const trackRect = galleryTrack.getBoundingClientRect();
         const trackCenter = trackRect.left + trackRect.width / 2;
@@ -83,8 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
         let closestDist = Infinity;
 
         galleryCards.forEach((card, i) => {
-          // offsetLeft/offsetWidth = layout real, sin transform, para que el
-          // scale de la card activa no distorsione el cálculo del centro.
           const cardCenterInTrack = card.offsetLeft + card.offsetWidth / 2;
           const cardCenterViewport = cardCenterInTrack - galleryTrack.scrollLeft + trackRect.left;
           const dist = Math.abs(cardCenterViewport - trackCenter);
@@ -103,9 +97,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return closestIndex;
       }
 
-      // Salta instantáneamente (sin animación) al equivalente en el set del
-      // medio cuando el usuario se acerca demasiado a un extremo clonado.
-      // Como las cards son idénticas, el salto es invisible.
       function enforceLoop() {
         const currentIndex = getClosestIndex();
         let targetIndex = null;
@@ -132,27 +123,22 @@ document.addEventListener('DOMContentLoaded', function () {
         scrollTimeout = setTimeout(enforceLoop, 120);
       }, { passive: true });
 
-      // Click en una card -> la centra
       galleryCards.forEach(card => {
-        card.addEventListener('click', () => {
-          card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-        });
+        card.addEventListener('click', () => centerCardInTrack(card, 'smooth'));
       });
 
-      // Flechas: mueven una card a la vez
       function scrollByCard(direction) {
         const currentIndex = getClosestIndex();
         const targetIndex = direction === 'next' ? currentIndex + 1 : currentIndex - 1;
         const target = galleryCards[targetIndex];
-        if (target) target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-      }
+        if (target) centerCardInTrack(target, 'smooth');
+        }
       prevBtn?.addEventListener('click', () => scrollByCard('prev'));
       nextBtn?.addEventListener('click', () => scrollByCard('next'));
 
-      // ---- Estado inicial: centrado en la card del medio, dentro del set del medio ----
       function centerInitialCard() {
         const middleIndex = setSize + Math.floor((setSize - 1) / 2);
-        galleryCards[middleIndex].scrollIntoView({ behavior: 'auto', inline: 'center', block: 'nearest' });
+        centerCardInTrack(galleryCards[middleIndex], 'auto');
         updateActiveCard();
       }
 
